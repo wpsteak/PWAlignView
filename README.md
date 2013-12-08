@@ -1,16 +1,8 @@
 PWAlignView
 ===========
-
-Align and arrange collection of view (UIView, UIImageView, UIButton, … ) on different direction
-
-`PWAlignView` is a light-weight class to help you layout some simple view, which need to align on some direction.
+`PWAlignView` is a light-weight class to help you layout some simple views (UIView, UIImageView, UIButton, … ), which need to to be aligned on some direction.
 
 ##Usage
-
-```
-   #import "PWAlignView.h"
-```
-
 
 ```
     PWAlignView *alignView = [[PWAlignView alloc] initWithFrame:self.view.frame];
@@ -20,34 +12,29 @@ Align and arrange collection of view (UIView, UIImageView, UIButton, … ) on di
     alignView.alignOption = PWAlignViewAlignOptionLeftToRight;
     [self.view addSubview:alignView];
     
-```
-
-
-```
     [alignView appendWithViewArray:array];
 ```
 
 ##Layout Types
-Align views on different directions
 
 ####Left To Right (Default)
 
 ```
-	alignView.alignOption = PWAlignViewAlignOptionLeftToRight;
+alignView.alignOption = PWAlignViewAlignOptionLeftToRight;
 ```
 
 ####Right To Left
 
 ```
-	alignView.alignOption = PWAlignViewAlignOptionRightToLeft;
+alignView.alignOption = PWAlignViewAlignOptionRightToLeft;
 ```
+##CocoaPods
 
-####Top To Bottom
-todo
-####Bottom To Top
-todo
+ ```
+pod "PWAlignView", "~> 1.0.0"
+ ```
 
-## Sample
+## Samples
 ![Sample](https://raw.github.com/wpsteak/PWAlignView/master/Screenshot.png)
 
 
