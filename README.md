@@ -39,6 +39,7 @@ pod "PWAlignView", "~> 1.0.0"
 
 ##TODO
 1.1.0
+
 vertical alignment top, center, bottom
 
 ## MIT License
