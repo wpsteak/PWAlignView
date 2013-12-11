@@ -37,7 +37,9 @@ pod "PWAlignView", "~> 1.0.0"
 ## Samples
 ![Sample](https://raw.github.com/wpsteak/PWAlignView/master/Screenshot.png)
 
-
+##TODO
+1.1.0
+vertical alignment top, center, bottom
 
 ## MIT License
 see license file
