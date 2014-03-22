@@ -38,7 +38,7 @@ alignView.alignOption = PWAlignViewAlignOptionRightToLeft;
 ##CocoaPods
 
  ```
-pod "PWAlignView", "~> 1.0.0"
+pod "PWAlignView"
  ```
 
 ## Samples
