@@ -10,8 +10,8 @@
 #import "PWViewController.h"
 #import "PWAlignView.h"
 
-#define CARD_SIZE 45
-#define TAG_SIZE 10
+static const CGFloat kCardSize = 45.0f;
+static const CGFloat kTagSize = 10.0f;
 
 @interface PWViewController ()
 
@@ -23,8 +23,8 @@
 {
     NSMutableArray *viewCollection = [NSMutableArray array];
     for (int i = 0; i < [string length]; i++) {
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(3, 3, CARD_SIZE, CARD_SIZE)];
-        [label setFont:[UIFont systemFontOfSize:CARD_SIZE]];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(3, 3, kCardSize, kCardSize)];
+        [label setFont:[UIFont systemFontOfSize:kCardSize]];
         [label setBackgroundColor:[UIColor clearColor]];
         [label setText:[string substringWithRange:NSMakeRange(i, 1)]];
         
@@ -40,8 +40,8 @@
 {
     NSMutableArray *viewCollection = [NSMutableArray array];
     for (NSString *tagTitle in array) {
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, TAG_SIZE, TAG_SIZE)];
-        [label setFont:[UIFont systemFontOfSize:TAG_SIZE]];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kTagSize, kTagSize)];
+        [label setFont:[UIFont systemFontOfSize:kTagSize]];
         [label setBackgroundColor:[UIColor colorWithRed:0.145 green:0.267 blue:0.706 alpha:1.000]];
         [label setTextColor:[UIColor whiteColor]];
         [label setText:tagTitle];
@@ -78,7 +78,7 @@
      left to right
      */
     PWAlignView *alignView2 = [[PWAlignView alloc] initWithFrame:CGRectMake(0, 270, 320, 20)];
-    alignView2.lineHeight = TAG_SIZE + 10;
+    alignView2.lineHeight = kTagSize + 10;
     alignView2.itemSpace = 5;
     alignView2.alignOption = PWAlignViewAlignOptionLeftToRight;
     alignView2.edgeInsets = UIEdgeInsetsMake(5, 5, 0, 0);
@@ -93,11 +93,10 @@
      right to left
      */
     PWAlignView *alignView3 = [[PWAlignView alloc] initWithFrame:CGRectMake(0, 305, 320, 50)];
-    alignView3.lineHeight = TAG_SIZE + 10;
+    alignView3.lineHeight = kTagSize + 10;
     alignView3.itemSpace = 5;
     alignView3.alignOption = PWAlignViewAlignOptionRightToLeft;
     alignView3.edgeInsets = UIEdgeInsetsMake(0, 0, 0, 5);
-    
     [self.view addSubview:alignView3];
 
     NSArray *sample3 = @[@" Tags ", @" Taipei ", @" 象山 "];
@@ -109,7 +108,7 @@
      multi-lines
      */
     PWAlignView *alignView4 = [[PWAlignView alloc] initWithFrame:CGRectMake(0, 360, 320, 50)];
-    alignView4.lineHeight = TAG_SIZE + 10;
+    alignView4.lineHeight = kTagSize + 10;
     alignView4.itemSpace = 5;
     alignView4.edgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
     [self.view addSubview:alignView4];
@@ -123,7 +122,7 @@
      different color text layout
      */
     PWAlignView *alignView5 = [[PWAlignView alloc] initWithFrame:CGRectMake(0, 440, 320, 50)];
-    alignView4.lineHeight = 24;
+    alignView5.lineHeight = 24;
     alignView5.itemSpace = 0;
     alignView5.edgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
     [self.view addSubview:alignView5];
