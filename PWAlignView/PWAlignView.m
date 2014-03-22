@@ -10,8 +10,8 @@
 
 @interface PWAlignView ()
 
-@property (nonatomic, strong)NSMutableArray *viewCollection;
-@property (nonatomic, strong)NSObject<PWAlignViewAlignOptionStrategyProtocol> *layoutStrategy;
+@property (nonatomic, strong) NSMutableArray *viewCollection;
+@property (nonatomic, strong) NSObject<PWAlignViewAlignOptionStrategyProtocol> *layoutStrategy;
 
 @end
 
@@ -28,30 +28,31 @@
 
 - (void)appendWithViewArray:(NSArray *)viewArray
 {
-    [self.viewCollection addObjectsFromArray:viewArray];
+    [_viewCollection addObjectsFromArray:viewArray];
     
     [self reloadLayout];
 }
 
 - (void)removeAllItems
 {
-    [self.viewCollection makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    [self.viewCollection removeAllObjects];
+    [_viewCollection makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [_viewCollection removeAllObjects];
     [self reloadLayout];
 }
 
 - (void)reloadLayout
 {
     self.layoutStrategy = [PWAlignViewAlignOptionStrategy strategyWithLayoutSetting:self.alignOption];
-    self.layoutStrategy.lineHeight = self.lineHeight;
-    self.layoutStrategy.itemSpace = self.itemSpace;
-    self.layoutStrategy.edgeInsets = self.edgeInsets;
+    _layoutStrategy.lineHeight = _lineHeight;
+    _layoutStrategy.itemSpace = _itemSpace;
+    _layoutStrategy.edgeInsets = _edgeInsets;
     
+    __typeof__(self) __weak weakSelf = self;
     [self.viewCollection enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UIView *view = (UIView *)obj;
-        CGRect frame = [self determineFrameAtIndex:view];
+        CGRect frame = [weakSelf determineFrameAtIndex:view];
         [view setFrame:frame];
-        [self addSubview:view];
+        [weakSelf addSubview:view];
     }];
 }
 
