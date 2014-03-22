@@ -2,6 +2,13 @@ PWAlignView
 ===========
 `PWAlignView` is a light-weight class to help you layout some simple views (UIView, UIImageView, UIButton, … ), which need to to be aligned on some direction.
 
+## What's new in 1.0.1
+- fix layout problem in PWAlignViewAlignOptionStrategyLR when view is out of alignView's frame
+
+- code refactor
+
+- refine example UI
+
 ##Usage
 
 ```
@@ -36,11 +43,6 @@ pod "PWAlignView", "~> 1.0.0"
 
 ## Samples
 ![Sample](https://raw.github.com/wpsteak/PWAlignView/master/Screenshot.png)
-
-##TODO
-1.1.0
-
-vertical alignment top, center, bottom
 
 ## MIT License
 see license file
